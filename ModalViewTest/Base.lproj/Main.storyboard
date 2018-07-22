@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i4f-Lf-mHb">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +14,191 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ModalViewTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdR-Zj-w6l">
+                                <rect key="frame" x="0.0" y="417" width="375" height="250"/>
+                                <color key="backgroundColor" name="tcSeafoamGreen"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="dmk-kf-wOl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Present Modal View">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Epe-Yc-tbD" kind="presentation" identifier="presentPop" modalPresentationStyle="overFullScreen" id="1IJ-ed-9Kf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NGy-ZD-fp6">
+                                <rect key="frame" x="0.0" y="64" width="375" height="353"/>
+                                <color key="backgroundColor" name="tcBlack"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <state key="normal" title="Add Tool Bar">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addToolBarPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r5x-iI-s8c"/>
+                                </connections>
+                            </button>
+                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r7I-mY-JuR">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="aT5-20-vfL"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Lja-mZ-fUB"/>
+                                    <barButtonItem title="Remove" id="JM0-fg-QZY">
+                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="removeBtnPressed:" destination="BYZ-38-t0r" id="38g-iO-F0R"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="uBa-V9-5v5"/>
+                                    <barButtonItem title="Confirm" id="Cdv-Z3-tuf">
+                                        <color key="tintColor" name="tcWhite"/>
+                                        <connections>
+                                            <action selector="confirmPressed:" destination="BYZ-38-t0r" id="AXB-5N-48H"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="W2o-Xn-Oax"/>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jdR-Zj-w6l" secondAttribute="trailing" id="0Am-bY-gcb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NGy-ZD-fp6" secondAttribute="trailing" id="3qS-aL-82D"/>
+                            <constraint firstItem="jdR-Zj-w6l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4GL-l5-lNf"/>
+                            <constraint firstItem="r7I-mY-JuR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7pa-Ko-7jm"/>
+                            <constraint firstItem="NGy-ZD-fp6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="IZh-Fn-uYa"/>
+                            <constraint firstItem="jdR-Zj-w6l" firstAttribute="top" secondItem="NGy-ZD-fp6" secondAttribute="bottom" id="Lfo-Jh-MZ0"/>
+                            <constraint firstItem="r7I-mY-JuR" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="MqO-CR-cCr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jdR-Zj-w6l" secondAttribute="bottom" id="ZR5-Uo-s86"/>
+                            <constraint firstItem="NGy-ZD-fp6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wQf-Dy-NUM"/>
+                            <constraint firstItem="r7I-mY-JuR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xbF-sL-Fry"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="2J4-wu-Q7r"/>
+                    <connections>
+                        <outlet property="itemConfirm" destination="Cdv-Z3-tuf" id="tUH-Vi-lg4"/>
+                        <outlet property="itemRemove" destination="JM0-fg-QZY" id="5Z4-T7-Cth"/>
+                        <outlet property="toolBar" destination="r7I-mY-JuR" id="mHA-mH-2bC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="380" y="132.68365817091455"/>
+        </scene>
+        <!--ModalVC-->
+        <scene sceneID="9bn-dU-azh">
+            <objects>
+                <viewController storyboardIdentifier="modalVC" id="Epe-Yc-tbD" customClass="ModalVC" customModule="ModalViewTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mtX-pa-vd6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gxq-zE-klg">
+                                <rect key="frame" x="87" y="243.5" width="200" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gf7-6n-84I">
+                                        <rect key="frame" x="0.0" y="150" width="100" height="50"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelPressed:" destination="Epe-Yc-tbD" eventType="touchUpInside" id="q4j-FG-wEo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHk-Vn-rpc">
+                                        <rect key="frame" x="100" y="150" width="100" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Iti-aZ-l72"/>
+                                        </constraints>
+                                        <state key="normal" title="Confirm">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="confirmPressed:" destination="Epe-Yc-tbD" eventType="touchUpInside" id="EGP-OX-Uch"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="tcSeafoamGreen"/>
+                                <constraints>
+                                    <constraint firstItem="Gf7-6n-84I" firstAttribute="leading" secondItem="Gxq-zE-klg" secondAttribute="leading" id="8IO-Ua-PGB"/>
+                                    <constraint firstItem="BHk-Vn-rpc" firstAttribute="leading" secondItem="Gf7-6n-84I" secondAttribute="trailing" id="GL3-bm-5Wn"/>
+                                    <constraint firstAttribute="bottom" secondItem="Gf7-6n-84I" secondAttribute="bottom" id="NbO-27-B3K"/>
+                                    <constraint firstAttribute="width" constant="200" id="NvC-r7-ZgR"/>
+                                    <constraint firstItem="BHk-Vn-rpc" firstAttribute="height" secondItem="Gf7-6n-84I" secondAttribute="height" id="R0m-eH-I6Z"/>
+                                    <constraint firstItem="BHk-Vn-rpc" firstAttribute="leading" secondItem="Gf7-6n-84I" secondAttribute="trailing" id="WLa-DU-9rO"/>
+                                    <constraint firstAttribute="bottom" secondItem="BHk-Vn-rpc" secondAttribute="bottom" id="faH-rW-fo5"/>
+                                    <constraint firstAttribute="height" constant="200" id="jFN-3r-yOk"/>
+                                    <constraint firstAttribute="trailing" secondItem="BHk-Vn-rpc" secondAttribute="trailing" id="xZC-bt-zWM"/>
+                                    <constraint firstItem="BHk-Vn-rpc" firstAttribute="width" secondItem="Gf7-6n-84I" secondAttribute="width" id="yqp-05-ryd"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a modal view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqV-aQ-z7o">
+                                <rect key="frame" x="105.5" y="334" width="163" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="0.63168878424657537" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eqV-aQ-z7o" firstAttribute="centerY" secondItem="Gxq-zE-klg" secondAttribute="centerY" id="OTj-Ui-JNh"/>
+                            <constraint firstItem="Gxq-zE-klg" firstAttribute="centerX" secondItem="h9f-5h-0Tg" secondAttribute="centerX" id="UPI-NF-xnw"/>
+                            <constraint firstItem="Gxq-zE-klg" firstAttribute="centerY" secondItem="h9f-5h-0Tg" secondAttribute="centerY" id="bXl-lR-1Xp"/>
+                            <constraint firstItem="eqV-aQ-z7o" firstAttribute="centerX" secondItem="Gxq-zE-klg" secondAttribute="centerX" id="jFA-v9-r1e"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h9f-5h-0Tg"/>
+                    </view>
+                    <connections>
+                        <outlet property="boxView" destination="Gxq-zE-klg" id="vXq-Zg-OGn"/>
+                        <segue destination="IYy-UX-Mw4" kind="unwind" identifier="unwind" unwindAction="unwindWithSegue:" id="WpC-ui-R4l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Mc-Cj-eCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="IYy-UX-Mw4" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1151.2" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8F2-Oi-6hp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i4f-Lf-mHb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CIL-D2-xeY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="imB-K0-Ce7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DoL-Wc-0ze" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-329" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="tcBlack">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tcSeafoamGreen">
+            <color red="0.34900000689999999" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tcSeafoamGreen">
+            <color red="0.34900000689999999" green="0.85500001910000001" blue="0.64300000670000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tcWhite">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
