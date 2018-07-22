@@ -87,24 +87,24 @@ class ViewController: UIViewController,confirmDelegate {
     
     @objc func confirmShape() {
         
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: "presentPop", sender: self)
-
+        let modalVC = storyboard?.instantiateViewController(withIdentifier: "modalVC") as! ModalVC
+        modalVC.delegate = self
+        self.present(modalVC, animated: false) {
+            
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let modalVC = storyboard?.instantiateViewController(withIdentifier: "modalVC") as! ModalVC
-        modalVC.delegate = self
+        
     }
     
     func didConfirm(bool: Bool){
         fatalError()
         print("This finall worked \(bool)")
+        
     }
     
     @objc func pressed() {
-        print("hello world")
         self.toolBar.setItems(oldItems, animated: true)
     }
     

@@ -30,6 +30,9 @@ class ModalVC: UIViewController {
     
     @IBAction func confirmPressed(_ sender: Any) {
         print("Her")
+        if let del = delegate {
+            print("yes")
+        }
          delegate?.didConfirm(bool: true)
         self.performSegue(withIdentifier: "unwind", sender: self)
     }
