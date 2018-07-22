@@ -89,18 +89,16 @@ class ViewController: UIViewController,confirmDelegate {
         
         let modalVC = storyboard?.instantiateViewController(withIdentifier: "modalVC") as! ModalVC
         modalVC.delegate = self
-        self.present(modalVC, animated: false) {
-            
-        }
-    }
+        modalVC.modalPresentationStyle = .overCurrentContext
+        present(modalVC, animated: true, completion: nil)
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
     }
     
     func didConfirm(bool: Bool){
-        fatalError()
         print("This finall worked \(bool)")
+        if bool == true {
+            self.toolBar.setItems(oldItems, animated: true)
+        }
         
     }
     
@@ -127,14 +125,14 @@ class ViewController: UIViewController,confirmDelegate {
     
     @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue){
         print("returning")
-        if !oldItems.isEmpty{
-            self.toolBar.setItems(oldItems, animated: true)
-            toolBar.isHidden = false
-            UIView.animate(withDuration: 0.5) {
-                self.toolBar.alpha = 0.8
-            }
-
-        }
+//        if !oldItems.isEmpty{
+//            self.toolBar.setItems(oldItems, animated: true)
+//            toolBar.isHidden = false
+//            UIView.animate(withDuration: 0.5) {
+//                self.toolBar.alpha = 0.8
+//            }
+//
+//        }
         
     }
 
